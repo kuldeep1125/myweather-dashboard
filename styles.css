@@ -10,7 +10,7 @@
 .favorites-box {
     position: absolute;
     top: 105px;
-    right: 20px;
+    right: 50px;
     background: var(--card-bg);
     border-radius: 15px;
     backdrop-filter: blur(10px);
@@ -87,9 +87,9 @@ body {
 
 
 .dark-mode-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    position: absolute;
+    top: 200px;
+    left : 50px;
     z-index: 1000;
     background: var(--accent-color);
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -309,7 +309,7 @@ body.dark-mode::before {
 .fixed-favorite-btn {
     position: absolute;
     top: 105px;
-    left: 20px;
+    left: 50px;
     z-index: 1000;
     background: var(--accent-color);
     color: white;
@@ -372,4 +372,163 @@ body.dark-mode::before {
     30% { transform: scale(1); }
     45% { transform: scale(1.15); }
     60% { transform: scale(1); }
+}
+
+/* ================== Mobile First Media Queries ================== */
+@media (max-width: 576px) {
+    .container {
+        padding: 15px;
+        margin-top: 80px; /* Space for fixed elements */
+    }
+
+    .location-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .weather-section {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    .data-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .data-item {
+        padding: 15px;
+    }
+
+    .favorites-box {
+        width: 90%;
+        right: 5%;
+        top: 70px;
+        max-height: 45px;
+    }
+
+    .fixed-favorite-btn {
+        top: 10px;
+        left: 5%;
+        width: 90%;
+        text-align: center;
+    }
+
+    .dark-mode-toggle {
+        top: 243px;
+        right: 5px;
+        left : 5px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    #cityInput {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    #searchBtn {
+        width: 100%;
+    }
+
+    .hourly-item {
+        width: 85%;
+        margin: 0 8px;
+    }
+
+    .developer-attribution {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+    }
+}
+
+/* ================== Tablet Styles ================== */
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .location-title {
+        font-size: 2rem;
+    }
+
+    .data-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .favorites-box {
+        width: 300px;
+        right: 15px;
+        top: 80px;
+    }
+
+    .fixed-favorite-btn {
+        left: 15px;
+        top: 80px;
+    }
+
+    .dark-mode-toggle {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* ================== Small Desktop/Laptop ================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .data-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .favorites-box {
+        width: 250px;
+    }
+}
+
+/* ================== Large Screens ================== */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* ================== Touch Device Optimizations ================== */
+@media (hover: none) and (pointer: coarse) {
+    .data-item:hover {
+        transform: none;
+    }
+
+    .favorite-item {
+        padding: 12px;
+        min-height: 48px; /* Better touch target */
+    }
+
+    button {
+        min-height: 48px;
+        padding: 12px 20px !important;
+    }
+}
+
+/* ================== Orientation Adjustments ================== */
+@media (orientation: landscape) and (max-height: 500px) {
+    .container {
+        padding-top: 70px;
+    }
+
+    .favorites-box {
+        top: 60px;
+    }
+
+    .fixed-favorite-btn {
+        top: 60px;
+    }
 }
